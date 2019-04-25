@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "bce6a01bf52938b8e6f75802ece05fc1",
+    "revision": "19ddd37b58d3d5b8cddeb6368dac0ddd",
     "url": "/wareki/index.html"
   },
   {
-    "revision": "3f98fdede685d33370be",
+    "revision": "a4bf4b9ab99cd2727209",
     "url": "/wareki/static/css/main.e4b13b02.chunk.css"
   },
   {
-    "revision": "4ca9f5ad5eecc62ece00",
-    "url": "/wareki/static/js/2.88f33ba8.chunk.js"
+    "revision": "0b48b3d075db2ef058ca",
+    "url": "/wareki/static/js/2.16299f92.chunk.js"
   },
   {
-    "revision": "3f98fdede685d33370be",
-    "url": "/wareki/static/js/main.3b95dd8a.chunk.js"
+    "revision": "a4bf4b9ab99cd2727209",
+    "url": "/wareki/static/js/main.11793369.chunk.js"
   },
   {
     "revision": "988af24d36d64e836114",
