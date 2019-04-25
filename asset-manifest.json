@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/wareki/static/css/main.e4b13b02.chunk.css",
-    "main.js": "/wareki/static/js/main.b1a277ab.chunk.js",
-    "main.js.map": "/wareki/static/js/main.b1a277ab.chunk.js.map",
+    "main.js": "/wareki/static/js/main.97454d1d.chunk.js",
+    "main.js.map": "/wareki/static/js/main.97454d1d.chunk.js.map",
     "runtime~main.js": "/wareki/static/js/runtime~main.33c1875e.js",
     "runtime~main.js.map": "/wareki/static/js/runtime~main.33c1875e.js.map",
-    "static/js/2.16299f92.chunk.js": "/wareki/static/js/2.16299f92.chunk.js",
-    "static/js/2.16299f92.chunk.js.map": "/wareki/static/js/2.16299f92.chunk.js.map",
+    "static/js/2.88f33ba8.chunk.js": "/wareki/static/js/2.88f33ba8.chunk.js",
+    "static/js/2.88f33ba8.chunk.js.map": "/wareki/static/js/2.88f33ba8.chunk.js.map",
     "index.html": "/wareki/index.html",
-    "precache-manifest.7c5e1c0c2dbbb9fb69ad2ea21677a80a.js": "/wareki/precache-manifest.7c5e1c0c2dbbb9fb69ad2ea21677a80a.js",
+    "precache-manifest.646ed564bd742e837bd3d92a098c5ac9.js": "/wareki/precache-manifest.646ed564bd742e837bd3d92a098c5ac9.js",
     "service-worker.js": "/wareki/service-worker.js",
     "static/css/main.e4b13b02.chunk.css.map": "/wareki/static/css/main.e4b13b02.chunk.css.map"
   }
