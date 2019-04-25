@@ -1,6 +1,7 @@
 {
   "short_name": "Wareki App",
   "name": "Wareki App",
+  "description": "japanese calendar table app using localStrage and ServiceWorker",
   "icons": [
     {
       "src": "launcher-icon-1x.png",
@@ -23,7 +24,7 @@
       "type": "image/png"
     }
   ],
-  "start_url": "./?utm_source=homescreen",
+  "start_url": "index.html",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff"
