@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "b5789ae3b1feca5567aed16c3530e695",
+    "revision": "bce6a01bf52938b8e6f75802ece05fc1",
     "url": "/wareki/index.html"
   },
   {
