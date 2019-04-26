@@ -8,6 +8,7 @@ import {
 
 import "./index.css";
 import App from "./App";
+import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
   <MuiThemeProvider>
@@ -15,3 +16,5 @@ ReactDOM.render(
   </MuiThemeProvider>,
   document.getElementById("root")
 );
+
+serviceWorker.register();
