@@ -14,7 +14,7 @@ const Tables = props => {
           </tr>
         </thead>
         <tbody>
-          {annos.map(function(anno, i) {
+          {annos.map((anno, i) => {
             return (
               <tr key={i}>
                 <td>{anno}</td>

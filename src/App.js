@@ -45,13 +45,13 @@ class App extends Component {
   increment() {
     const { annos, heiseis, reiwas } = this.state;
     this.setState({
-      annos: annos.map(function(a) {
+      annos: annos.map(a => {
         return a + 1;
       }),
-      heiseis: heiseis.map(function(a) {
+      heiseis: heiseis.map(a => {
         return a + 1;
       }),
-      reiwas: reiwas.map(function(a) {
+      reiwas: reiwas.map(a => {
         return a + 1;
       })
     });
@@ -60,13 +60,13 @@ class App extends Component {
   decrement() {
     const { annos, heiseis, reiwas } = this.state;
     this.setState({
-      annos: annos.map(function(a) {
+      annos: annos.map(a => {
         return a - 1;
       }),
-      heiseis: heiseis.map(function(a) {
+      heiseis: heiseis.map(a => {
         return a - 1;
       }),
-      reiwas: reiwas.map(function(a) {
+      reiwas: reiwas.map(a => {
         return a - 1;
       })
     });
