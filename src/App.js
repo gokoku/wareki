@@ -10,9 +10,16 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      annos: [],
-      heiseis: [],
-      reiwas: []
+      year: {
+        annos: [],
+        shouwas: [],
+        heiseis: [],
+        reiwas: []
+      },
+      limit: {
+        shouwa: 1989,
+        heisei: 2019
+      }
     };
 
     this.yearHandler = this.yearHandler.bind(this);
@@ -21,16 +28,22 @@ class App extends Component {
   }
   makeDate(year) {
     const annos = new Array(times);
+    const shouwas = new Array(times);
     const heiseis = new Array(times);
     const reiwas = new Array(times);
     for (let i = 0; i < times; i++) {
       annos[i] = year - times / 2 + i;
+      shouwas[i] = annos[i] - 1925;
       heiseis[i] = annos[i] - 1988;
       reiwas[i] = heiseis[i] - 30;
     }
-    this.setState({ annos: annos });
-    this.setState({ heiseis: heiseis });
-    this.setState({ reiwas: reiwas });
+    this.setState({
+      year: {
+        annos: annos,
+        heiseis: heiseis,
+        reiwas: reiwas
+      }
+    });
   }
   componentDidMount() {
     const year = new Date().getFullYear();
@@ -43,32 +56,36 @@ class App extends Component {
   }
 
   increment() {
-    const { annos, heiseis, reiwas } = this.state;
+    const { annos, heiseis, reiwas } = this.state.year;
     this.setState({
-      annos: annos.map(a => {
-        return a + 1;
-      }),
-      heiseis: heiseis.map(a => {
-        return a + 1;
-      }),
-      reiwas: reiwas.map(a => {
-        return a + 1;
-      })
+      year: {
+        annos: annos.map(a => {
+          return a + 1;
+        }),
+        heiseis: heiseis.map(a => {
+          return a + 1;
+        }),
+        reiwas: reiwas.map(a => {
+          return a + 1;
+        })
+      }
     });
   }
 
   decrement() {
-    const { annos, heiseis, reiwas } = this.state;
+    const { annos, heiseis, reiwas } = this.state.year;
     this.setState({
-      annos: annos.map(a => {
-        return a - 1;
-      }),
-      heiseis: heiseis.map(a => {
-        return a - 1;
-      }),
-      reiwas: reiwas.map(a => {
-        return a - 1;
-      })
+      year: {
+        annos: annos.map(a => {
+          return a - 1;
+        }),
+        heiseis: heiseis.map(a => {
+          return a - 1;
+        }),
+        reiwas: reiwas.map(a => {
+          return a - 1;
+        })
+      }
     });
   }
 
