@@ -135,7 +135,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Typography component="h2" variant="display3">
+        <Typography component="h2" variant="h3">
           和暦
         </Typography>
 
