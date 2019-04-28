@@ -12,14 +12,19 @@ class App extends Component {
     this.state = {
       year: {
         annos: [],
+        meijis: [],
+        taishous: [],
         shouwas: [],
         heiseis: [],
         reiwas: []
       },
       limit: {
+        meiji: 1912,
+        taishou: 1926,
         shouwa: 1989,
         heisei: 2019
-      }
+      },
+      thisYear: 0
     };
 
     this.yearHandler = this.yearHandler.bind(this);
@@ -28,11 +33,15 @@ class App extends Component {
   }
   makeDate(year) {
     const annos = new Array(times);
+    const meijis = new Array(times);
+    const taishous = new Array(times);
     const shouwas = new Array(times);
     const heiseis = new Array(times);
     const reiwas = new Array(times);
     for (let i = 0; i < times; i++) {
       annos[i] = year - times / 2 + i;
+      meijis[i] = annos[i] - 1867;
+      taishous[i] = annos[i] - 1911;
       shouwas[i] = annos[i] - 1925;
       heiseis[i] = annos[i] - 1988;
       reiwas[i] = heiseis[i] - 30;
@@ -40,6 +49,9 @@ class App extends Component {
     this.setState({
       year: {
         annos: annos,
+        meijis: meijis,
+        taishous: taishous,
+        shouwas: shouwas,
         heiseis: heiseis,
         reiwas: reiwas
       }
@@ -47,6 +59,7 @@ class App extends Component {
   }
   componentDidMount() {
     const year = new Date().getFullYear();
+    this.setState({ thisYear: year });
     this.makeDate(year);
   }
 
@@ -56,10 +69,26 @@ class App extends Component {
   }
 
   increment() {
-    const { annos, heiseis, reiwas } = this.state.year;
+    const {
+      annos,
+      meijis,
+      taishous,
+      shouwas,
+      heiseis,
+      reiwas
+    } = this.state.year;
     this.setState({
       year: {
         annos: annos.map(a => {
+          return a + 1;
+        }),
+        meijis: meijis.map(a => {
+          return a + 1;
+        }),
+        taishous: taishous.map(a => {
+          return a + 1;
+        }),
+        shouwas: shouwas.map(a => {
           return a + 1;
         }),
         heiseis: heiseis.map(a => {
@@ -73,10 +102,26 @@ class App extends Component {
   }
 
   decrement() {
-    const { annos, heiseis, reiwas } = this.state.year;
+    const {
+      annos,
+      meijis,
+      taishous,
+      shouwas,
+      heiseis,
+      reiwas
+    } = this.state.year;
     this.setState({
       year: {
         annos: annos.map(a => {
+          return a - 1;
+        }),
+        meijis: meijis.map(a => {
+          return a - 1;
+        }),
+        taishous: taishous.map(a => {
+          return a - 1;
+        }),
+        shouwas: shouwas.map(a => {
           return a - 1;
         }),
         heiseis: heiseis.map(a => {

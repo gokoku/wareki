@@ -20,6 +20,14 @@
   color: #aaa;
   background-color: #efefef;
   border: solid 1px white;
+  width: 80px;
+}
+.table table td.demilita {
+  background-color: #e0e0e0;
+}
+.table table td.this_year {
+  background-color: #7f7f7f;
+  color: white;
 }
 .table table tr:hover td:nth-child(1) {
   color: #666;
