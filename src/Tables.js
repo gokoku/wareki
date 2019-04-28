@@ -1,13 +1,9 @@
 import React, { Component } from "react";
 
 class Tables extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   wareki_str(anno, i) {
     const { meijis, taishous, shouwas, heiseis } = this.props.date.year;
-    const { meiji, taishou, shouwa, heisei } = this.props.date.limit;
+    const { meiji, taishou, shouwa } = this.props.date.limit;
     let str = "";
     if (anno <= 1867) {
       str = "-";
@@ -25,7 +21,6 @@ class Tables extends Component {
 
   reiwa_str(i) {
     const { reiwas } = this.props.date.year;
-    let year = reiwas[i];
     let str = "";
     if (reiwas[i] <= 0) {
       str = "-";
