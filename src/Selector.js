@@ -16,12 +16,16 @@ const styles = theme => ({
 });
 
 const Selector = props => {
-  const { classes, increment, decrement } = props;
+  const { classes, increment, decrement, reset } = props;
 
   return (
     <div className="selector">
       <Button variant="contained" color="default" onClick={decrement}>
         <Icon className={classes.icon}>expand_less</Icon>
+      </Button>
+      &nbsp;&nbsp;
+      <Button variant="contained" color="default" onClick={reset}>
+        <Icon className={classes.icon}>adjust</Icon>
       </Button>
       &nbsp;&nbsp;
       <Button variant="contained" color="default" onClick={increment}>

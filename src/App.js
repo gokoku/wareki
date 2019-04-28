@@ -26,8 +26,7 @@ class App extends Component {
       },
       thisYear: 0
     };
-
-    this.yearHandler = this.yearHandler.bind(this);
+    this.reset = this.reset.bind(this);
     this.increment = this.increment.bind(this);
     this.decrement = this.decrement.bind(this);
   }
@@ -58,14 +57,13 @@ class App extends Component {
     });
   }
   componentDidMount() {
+    this.reset();
+  }
+
+  reset() {
     const year = new Date().getFullYear();
     this.setState({ thisYear: year });
     this.makeDate(year);
-  }
-
-  yearHandler(e) {
-    console.log(e.target.value);
-    this.makeDate(e.target.value);
   }
 
   increment() {
@@ -80,22 +78,22 @@ class App extends Component {
     this.setState({
       year: {
         annos: annos.map(a => {
-          return a + 1;
+          return a + 3;
         }),
         meijis: meijis.map(a => {
-          return a + 1;
+          return a + 3;
         }),
         taishous: taishous.map(a => {
-          return a + 1;
+          return a + 3;
         }),
         shouwas: shouwas.map(a => {
-          return a + 1;
+          return a + 3;
         }),
         heiseis: heiseis.map(a => {
-          return a + 1;
+          return a + 3;
         }),
         reiwas: reiwas.map(a => {
-          return a + 1;
+          return a + 3;
         })
       }
     });
@@ -113,22 +111,22 @@ class App extends Component {
     this.setState({
       year: {
         annos: annos.map(a => {
-          return a - 1;
+          return a - 3;
         }),
         meijis: meijis.map(a => {
-          return a - 1;
+          return a - 3;
         }),
         taishous: taishous.map(a => {
-          return a - 1;
+          return a - 3;
         }),
         shouwas: shouwas.map(a => {
-          return a - 1;
+          return a - 3;
         }),
         heiseis: heiseis.map(a => {
-          return a - 1;
+          return a - 3;
         }),
         reiwas: reiwas.map(a => {
-          return a - 1;
+          return a - 3;
         })
       }
     });
@@ -145,6 +143,7 @@ class App extends Component {
           date={this.state}
           increment={this.increment}
           decrement={this.decrement}
+          reset={this.reset}
         />
         <Tables date={this.state} />
       </div>
