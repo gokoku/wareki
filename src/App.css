@@ -11,6 +11,9 @@
 .selector {
   margin-bottom: 10px;
 }
+.table table {
+  width: 100%;
+}
 .table table tr {
   color: #666;
 }
@@ -20,7 +23,6 @@
   color: #aaa;
   background-color: #efefef;
   border: solid 1px white;
-  width: 80px;
 }
 .table table td.demilita {
   background-color: #e0e0e0;
@@ -28,6 +30,12 @@
 .table table td.this_year {
   background-color: #7f7f7f;
   color: white;
+}
+.table table td:nth-child(2) {
+  width: 130px;
+}
+.table table td:nth-child(3) {
+  width: 130px;
 }
 .table table tr:hover td:nth-child(1) {
   color: #666;
