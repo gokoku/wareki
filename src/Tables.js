@@ -1,9 +1,11 @@
-import React, { Component } from "react";
+import React from "react";
 
-class Tables extends Component {
-  wareki_str(anno, i) {
-    const { meijis, taishous, shouwas, heiseis } = this.props.date.year;
-    const { meiji, taishou, shouwa } = this.props.date.limit;
+function Tables(props) {
+  const { annos, meijis, taishous, shouwas, heiseis, reiwas } = props.date.year;
+  const { meiji, taishou, shouwa } = props.date.limit;
+  const year = props.date.thisYear;
+
+  const wareki_str = (anno, i) => {
     let str = "";
     if (anno <= 1867) {
       str = "-";
@@ -17,10 +19,9 @@ class Tables extends Component {
       str = `平成${heiseis[i]}年`;
     }
     return str;
-  }
+  };
 
-  reiwa_str(i) {
-    const { reiwas } = this.props.date.year;
+  const reiwa_str = i => {
     let str = "";
     if (reiwas[i] <= 0) {
       str = "-";
@@ -28,10 +29,9 @@ class Tables extends Component {
       str = `令和${reiwas[i]}年`;
     }
     return str;
-  }
+  };
 
-  class_name(anno) {
-    const year = this.props.date.thisYear;
+  const class_name = anno => {
     let str = "";
     if (anno % 10 === 0) {
       str = "demilita";
@@ -39,29 +39,24 @@ class Tables extends Component {
       str = "this_year";
     }
     return str;
-  }
+  };
 
-  render() {
-    const annos = this.props.date.year.annos;
-    return (
-      <div className="table">
-        <table>
-          <tbody>
-            {annos.map((anno, i) => {
-              return (
-                <tr key={i}>
-                  <td className={this.class_name(anno)}>{anno}年</td>
-                  <td className={this.class_name(anno)}>
-                    {this.wareki_str(anno, i)}
-                  </td>
-                  <td className={this.class_name(anno)}>{this.reiwa_str(i)}</td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      </div>
-    );
-  }
+  return (
+    <div className="table">
+      <table>
+        <tbody>
+          {annos.map((anno, i) => {
+            return (
+              <tr key={i}>
+                <td className={class_name(anno)}>{anno}年</td>
+                <td className={class_name(anno)}>{wareki_str(anno, i)}</td>
+                <td className={class_name(anno)}>{reiwa_str(i)}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
+  );
 }
 export default Tables;
