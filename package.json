@@ -9,9 +9,15 @@
     "eslint": ">=6.2.2",
     "postcss": ">= 8.4.38",
     "querystringify": ">= 2.0.0",
+<<<<<<< HEAD
     "react": ">=16.8.6",
     "react-dom": ">=16.8.6",
     "react-scripts": ">=5.0.1"
+=======
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-scripts": "^5.0.1"
+>>>>>>> 6d730ee6590a94b5276a7bf8172416a63a4a00fc
   },
   "scripts": {
     "start": "react-scripts start",
