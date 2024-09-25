@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import Typography from "@material-ui/core/Typography";
 
@@ -6,31 +6,26 @@ import Selector from "./Selector";
 import Tables from "./Tables";
 
 const times = 16;
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      year: {
-        annos: [],
-        meijis: [],
-        taishous: [],
-        shouwas: [],
-        heiseis: [],
-        reiwas: []
-      },
-      limit: {
-        meiji: 1912,
-        taishou: 1926,
-        shouwa: 1989,
-        heisei: 2019
-      },
-      thisYear: 0
-    };
-    this.reset = this.reset.bind(this);
-    this.increment = this.increment.bind(this);
-    this.decrement = this.decrement.bind(this);
-  }
-  makeDate(year) {
+const App = () => {
+  const [year, setYear] = useState({
+    annos: [],
+    meijis: [],
+    taishous: [],
+    shouwas: [],
+    heiseis: [],
+    reiwas: []
+  });
+
+  const [limit] = useState({
+    meiji: 1912,
+    taishou: 1926,
+    shouwa: 1989,
+    heisei: 2019
+  });
+
+  const [thisYear, setThisYear] = useState(0);
+
+  const makeDate = (year) => {
     const annos = new Array(times);
     const meijis = new Array(times);
     const taishous = new Array(times);
@@ -45,110 +40,63 @@ class App extends Component {
       heiseis[i] = annos[i] - 1988;
       reiwas[i] = heiseis[i] - 30;
     }
-    this.setState({
-      year: {
-        annos: annos,
-        meijis: meijis,
-        taishous: taishous,
-        shouwas: shouwas,
-        heiseis: heiseis,
-        reiwas: reiwas
-      }
+    setYear({
+      annos: annos,
+      meijis: meijis,
+      taishous: taishous,
+      shouwas: shouwas,
+      heiseis: heiseis,
+      reiwas: reiwas
     });
-  }
-  componentDidMount() {
-    this.reset();
-  }
+  };
 
-  reset() {
+  useEffect(() => {
+    reset();
+  }, []);
+
+  const reset = () => {
     const year = new Date().getFullYear();
-    this.setState({ thisYear: year });
-    this.makeDate(year);
-  }
+    setThisYear(year);
+    makeDate(year);
+  };
 
-  increment() {
-    const {
-      annos,
-      meijis,
-      taishous,
-      shouwas,
-      heiseis,
-      reiwas
-    } = this.state.year;
-    this.setState({
-      year: {
-        annos: annos.map(a => {
-          return a + 3;
-        }),
-        meijis: meijis.map(a => {
-          return a + 3;
-        }),
-        taishous: taishous.map(a => {
-          return a + 3;
-        }),
-        shouwas: shouwas.map(a => {
-          return a + 3;
-        }),
-        heiseis: heiseis.map(a => {
-          return a + 3;
-        }),
-        reiwas: reiwas.map(a => {
-          return a + 3;
-        })
-      }
-    });
-  }
+  const increment = () => {
+    setYear((prevYear) => ({
+      annos: prevYear.annos.map(a => a + 3),
+      meijis: prevYear.meijis.map(a => a + 3),
+      taishous: prevYear.taishous.map(a => a + 3),
+      shouwas: prevYear.shouwas.map(a => a + 3),
+      heiseis: prevYear.heiseis.map(a => a + 3),
+      reiwas: prevYear.reiwas.map(a => a + 3)
+    }));
+  };
 
-  decrement() {
-    const {
-      annos,
-      meijis,
-      taishous,
-      shouwas,
-      heiseis,
-      reiwas
-    } = this.state.year;
-    this.setState({
-      year: {
-        annos: annos.map(a => {
-          return a - 3;
-        }),
-        meijis: meijis.map(a => {
-          return a - 3;
-        }),
-        taishous: taishous.map(a => {
-          return a - 3;
-        }),
-        shouwas: shouwas.map(a => {
-          return a - 3;
-        }),
-        heiseis: heiseis.map(a => {
-          return a - 3;
-        }),
-        reiwas: reiwas.map(a => {
-          return a - 3;
-        })
-      }
-    });
-  }
+  const decrement = () => {
+    setYear((prevYear) => ({
+      annos: prevYear.annos.map(a => a - 3),
+      meijis: prevYear.meijis.map(a => a - 3),
+      taishous: prevYear.taishous.map(a => a - 3),
+      shouwas: prevYear.shouwas.map(a => a - 3),
+      heiseis: prevYear.heiseis.map(a => a - 3),
+      reiwas: prevYear.reiwas.map(a => a - 3)
+    }));
+  };
 
-  render() {
-    return (
-      <div className="App">
-        <Typography component="h2" variant="h3">
-          和暦
-        </Typography>
+  return (
+    <div className="App">
+      <Typography component="h2" variant="h3">
+        和暦
+      </Typography>
 
-        <Selector
-          date={this.state}
-          increment={this.increment}
-          decrement={this.decrement}
-          reset={this.reset}
-        />
-        <Tables date={this.state} />
-      </div>
-    );
-  }
+      <Selector
+        date={{ year, limit, thisYear }}
+        increment={increment}
+        decrement={decrement}
+        reset={reset}
+      />
+      <Tables date={{ year, limit, thisYear }} />
+    </div>
+  );
 }
 
 export default App;
