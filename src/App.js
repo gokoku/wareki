@@ -5,8 +5,11 @@ import Typography from "@material-ui/core/Typography";
 import Selector from "./Selector";
 import Tables from "./Tables";
 
+// 定数 times は、年の範囲を決定するために使用されます
 const times = 16;
+
 const App = () => {
+  // 年のデータを保持するための state
   const [year, setYear] = useState({
     annos: [],
     meijis: [],
@@ -16,6 +19,7 @@ const App = () => {
     reiwas: []
   });
 
+  // 各時代の終了年を保持するための state
   const [limit] = useState({
     meiji: 1912,
     taishou: 1926,
@@ -23,8 +27,10 @@ const App = () => {
     heisei: 2019
   });
 
+  // 現在の年を保持するための state
   const [thisYear, setThisYear] = useState(0);
 
+  // 年のデータを生成する関数
   const makeDate = (year) => {
     const annos = new Array(times);
     const meijis = new Array(times);
@@ -50,16 +56,19 @@ const App = () => {
     });
   };
 
+  // コンポーネントの初回レンダリング時に reset 関数を呼び出す
   useEffect(() => {
     reset();
   }, []);
 
+  // 年のデータを現在の年にリセットする関数
   const reset = () => {
     const year = new Date().getFullYear();
     setThisYear(year);
     makeDate(year);
   };
 
+  // 年のデータを3年進める関数
   const increment = () => {
     setYear((prevYear) => ({
       annos: prevYear.annos.map(a => a + 3),
@@ -71,6 +80,7 @@ const App = () => {
     }));
   };
 
+  // 年のデータを3年戻す関数
   const decrement = () => {
     setYear((prevYear) => ({
       annos: prevYear.annos.map(a => a - 3),
