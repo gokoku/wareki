@@ -11,7 +11,10 @@
 .selector {
   margin-bottom: 10px;
 }
-.table table {
+.table {
+  overflow-y: auto;
+  max-height: 400px; /* 必要に応じて高さを調整 */
+}
   width: 100%;
 }
 .table table tr {
