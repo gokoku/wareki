@@ -1,38 +1,33 @@
-import React from "react";
-import Button from "@material-ui/core/Button";
+import React from "react"
+import Button from "@mui/material/Button"
+import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward"
+import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward"
+import AdjustIcon from "@mui/icons-material/Adjust"
 
-import { withStyles } from "@material-ui/core/styles";
-import Icon from "@material-ui/core/Icon";
+const iconStyles = {
+  padding: "5px",
+  fontSize: "1.5rem",
+  color: "#888",
+}
 
-const styles = theme => ({
-  root: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "flex-end"
-  },
-  icon: {
-    margin: theme.spacing.unit * 1
-  }
-});
-
-const Selector = props => {
-  const { classes, increment, decrement, reset } = props;
+const Selector = (props) => {
+  const { increment, decrement, reset } = props
 
   return (
     <div className="selector">
       <Button variant="contained" color="default" onClick={decrement}>
-        <Icon className={classes.icon}>expand_less</Icon>
+        <ArrowUpwardIcon sx={iconStyles} />
       </Button>
       &nbsp;&nbsp;
       <Button variant="contained" color="default" onClick={reset}>
-        <Icon className={classes.icon}>adjust</Icon>
+        <AdjustIcon sx={iconStyles} />
       </Button>
       &nbsp;&nbsp;
       <Button variant="contained" color="default" onClick={increment}>
-        <Icon className={classes.icon}>expand_more</Icon>
+        <ArrowDownwardIcon sx={iconStyles} />
       </Button>
     </div>
-  );
-};
+  )
+}
 
-export default withStyles(styles)(Selector);
+export default Selector
