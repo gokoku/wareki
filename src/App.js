@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react"
 import "./App.css"
 import Typography from "@mui/material/Typography"
 
-import Selector from "./Selector"
 import Tables from "./Tables"
 
 // 定数 times は、年の範囲を決定するために使用されます
@@ -98,13 +97,11 @@ const App = () => {
         和暦
       </Typography>
 
-      <Selector
-        date={{ year, limit, thisYear }}
+      <Tables 
+        date={{ year, limit, thisYear }} 
         increment={increment}
         decrement={decrement}
-        reset={reset}
       />
-      <Tables date={{ year, limit, thisYear }} />
     </div>
   )
 }
