@@ -42,6 +42,7 @@
     ]
   },
   "overrides": {
+    "svgo": ">=2.8.1",
     "glob": "~10.5.0",
     "webpack-dev-server": ">=5.2.1",
     "nth-check": ">=2.0.1",
