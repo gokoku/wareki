@@ -45,7 +45,7 @@
     "lodash": ">=4.18.1",
     "serialize-javascript": ">=7.0.5",
     "yaml": ">=2.0.0",
-    "svgo": ">=4.0.2",
+    "svgo": ">=4.1.0",
     "glob": "~10.5.0",
     "webpack-dev-server": ">=5.2.6",
     "nth-check": ">=2.0.1",
